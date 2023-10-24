@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfnk8wsnv5hbc"]
+
+[ext_resource type="PackedScene" uid="uid://2vxjc3njaol7" path="res://grid.tscn" id="1_khjf2"]
+[ext_resource type="PackedScene" uid="uid://ckukyr88u45ou" path="res://character.tscn" id="2_0ob5o"]
+[ext_resource type="Texture2D" uid="uid://dxh4dfl4pveu7" path="res://Boss.png" id="3_6imti"]
+[ext_resource type="Script" path="res://Hand.gd" id="4_8bpyp"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Grid" parent="." instance=ExtResource("1_khjf2")]
+visible = false
+position = Vector2(389, 220)
+rotation = 0.261799
+skew = 0.959931
+
+[node name="Character" parent="Grid" instance=ExtResource("2_0ob5o")]
+grid_position = Vector2(1, 1)
+
+[node name="Enemy" type="Node2D" parent="."]
+visible = false
+position = Vector2(675, 126)
+scale = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+texture = ExtResource("3_6imti")
+
+[node name="Hand" type="Node2D" parent="."]
+position = Vector2(512, 576)
+script = ExtResource("4_8bpyp")
